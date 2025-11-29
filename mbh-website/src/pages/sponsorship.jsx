@@ -7,6 +7,9 @@ import Logo from "../assets/logo name.png";
 import OSCE from "../assets/images/sponsors/osce.png";
 import UNSW from "../assets/images/sponsors/unsw.png";
 import Abbott from "../assets/images/sponsors/abbott.png";
+import OneMD from "../assets/images/sponsors/onemd.png";
+import EngineersAustralia from "../assets/images/sponsors/ea.png";
+
 import Ansys from "../assets/images/sponsors/ansys.png";
 import IHealthE from "../assets/images/sponsors/tyree-ihealthe.png";
 import StVincents from "../assets/images/sponsors/st-vincents.png";
@@ -15,6 +18,8 @@ const sponsors = [
   { name: "Abbott", img: Abbott },
   { name: "UNSW Sydney", img: UNSW },
   { name: "Office of the Chief Scientist and Engineer", img: OSCE },
+  { name: "OneMD", img: OneMD },
+  { name: "Engineers Australia", img: EngineersAustralia },
 ];
 
 const collaborators = [
