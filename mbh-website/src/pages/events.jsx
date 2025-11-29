@@ -28,7 +28,7 @@ function Events() {
       img.onload = () => {
         countLoadedImg += 1;
         if (countLoadedImg === images.length) {
-          const totalDuration = loadingTexts.length * 1000; // 1s per phrase
+          const totalDuration = loadingTexts.length * 1000;
           setTimeout(() => setLoading(false), totalDuration);
         }
       };
@@ -43,7 +43,7 @@ function Events() {
       setLoadingTextIndex((prev) =>
         prev + 1 === loadingTexts.length ? loadingTexts.length : (prev + 1) % loadingTexts.length
       );
-    }, 1000);
+    }, 1500);
     return () => clearInterval(interval);
   }, [loading]);
 
@@ -70,17 +70,20 @@ function Events() {
         </div>
         <div className="flex flex-col w-full h-[auto] bg-[#c50102] justify-center items-center gap-20 px-6 py-16">
           <div className="flex grid grid-cols-1 md:grid-cols-3 gap-16 justify-center items-center">
-            {/* vip */}
+            {/* heart hackathon */}
             <div
               className="relative flex flex-col bg-cover bg-center bg-no-repeat gap-6 p-6 justify-center items-center text-white w-70 aspect-square"
-              style={{ backgroundImage: `url(${VIP})` }}
+              style={{ backgroundImage: `url(${HeartHack})` }}
             >
               <div className="absolute inset-0 bg-black/30"></div>
               <span className="relative z-10 inline-block w-40 text-center pb-4 border-b-4 border-white font-bold text-2xl">
-                VIP Consortium
+                Heart Hackathon
               </span>
               <div className="relative z-10 px-6">
-                <button className="bg-[#c50102] text-white text-lg px-6 py-2 border-2 border-transparent hover:bg-red-50 hover:text-[#c50102] hover:border-[#c50102] transition">
+                <button
+                  onClick={() => navigate("/events/heart-hackathon")}
+                  className="bg-[#c50102] text-white text-lg px-6 py-2 border-2 border-transparent hover:bg-red-50 hover:text-[#c50102] hover:border-[#c50102] transition"
+                >
                   See More
                 </button>
               </div>
@@ -103,20 +106,17 @@ function Events() {
                 </button>
               </div>
             </div>
-            {/* heart hackathon */}
+            {/* vip */}
             <div
               className="relative flex flex-col bg-cover bg-center bg-no-repeat gap-6 p-6 justify-center items-center text-white w-70 aspect-square"
-              style={{ backgroundImage: `url(${HeartHack})` }}
+              style={{ backgroundImage: `url(${VIP})` }}
             >
               <div className="absolute inset-0 bg-black/30"></div>
               <span className="relative z-10 inline-block w-40 text-center pb-4 border-b-4 border-white font-bold text-2xl">
-                Heart Hackathon
+                VIP Consortium
               </span>
               <div className="relative z-10 px-6">
-                <button
-                  onClick={() => navigate("/events/heart-hackathon")}
-                  className="bg-[#c50102] text-white text-lg px-6 py-2 border-2 border-transparent hover:bg-red-50 hover:text-[#c50102] hover:border-[#c50102] transition"
-                >
+                <button className="bg-[#c50102] text-white text-lg px-6 py-2 border-2 border-transparent hover:bg-red-50 hover:text-[#c50102] hover:border-[#c50102] transition">
                   See More
                 </button>
               </div>
