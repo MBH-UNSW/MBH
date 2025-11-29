@@ -2,6 +2,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import React from "react";
 import NavigationBar from "../components/navigation";
 import Footer from "../components/footer";
+import Us from "../assets/images/heart hands.png";
 
 function AboutUs() {
   React.useEffect(() => window.scrollTo(0, 0), []);
@@ -9,9 +10,13 @@ function AboutUs() {
     <>
       <NavigationBar />
       <div className="w-full flex flex-col pt-20">
-        <div className="w-full h-[40vh] bg-[#c50102] text-white flex flex-col justify-center items-center text-center text-2xl px-10 gap-6">
-          <b className="text-4xl">About Us</b>
-          Find out our goals and the impact we aim to have
+        <div
+          className="relative w-full h-[50vh] bg-cover bg-no-repeat text-white flex flex-col justify-center items-center text-center text-2xl px-10 gap-6"
+          style={{ backgroundImage: `url(${Us})`, backgroundPositionY: "35%" }}
+        >
+          <div className="absolute inset-0 bg-black/30"></div>
+          <b className="relative z-10 text-4xl">About Us</b>
+          <div className="relative z-10 text-white text-2xl">Find out our goals and the impact we aim to have</div>
         </div>
         <div className="w-full h-[auto] bg-[#f5f5f5] flex flex-col px-10 py-15 gap-6">
           <div className="text-2xl px-6">
