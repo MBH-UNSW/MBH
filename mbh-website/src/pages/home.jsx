@@ -6,11 +6,54 @@ import MBHOfficial from "../assets/images/team official.png";
 import AboutUs from "../assets/images/stairs.png";
 import OurTeam from "../assets/images/fun team.jpg";
 import Events from "../assets/images/vip.png";
-import Sponsor from "../assets/images/sponsor.png";
+import Sponsor from "../assets/images/sponsors/sponsor.png";
+import Logo from "../assets/logo name.png";
 
 function Home() {
   React.useEffect(() => window.scrollTo(0, 0), []);
   const navigate = useNavigate();
+
+  // wait for images to load
+  const [loading, setLoading] = React.useState(true);
+  const [loadingTextIndex, setLoadingTextIndex] = React.useState(0);
+  const images = [MBHOfficial, AboutUs, Events];
+  const loadingTexts = ["Total artificial heart… initializing…", "Synchronizing flow...", "Almost ready…"];
+  React.useEffect(() => {
+    let countLoadedImg = 0;
+    const imageObjects = [];
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        countLoadedImg += 1;
+        if (countLoadedImg === images.length) {
+          const totalDuration = loadingTexts.length * 1000; // 1s per phrase
+          setTimeout(() => setLoading(false), totalDuration);
+        }
+      };
+      imageObjects.push(img);
+    });
+    return () => imageObjects.forEach((img) => (img.onload = null));
+  }, []);
+  React.useEffect(() => {
+    if (!loading) return;
+    const interval = setInterval(() => {
+      setLoadingTextIndex((prev) =>
+        prev + 1 === loadingTexts.length ? loadingTexts.length : (prev + 1) % loadingTexts.length
+      );
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [loading]);
+
+  if (loading) {
+    return (
+      <div className="w-full h-screen flex flex-col gap-16 justify-center items-center text-xl text-[#c50102] font-bold px-4 text-center">
+        <img src={Logo} alt="Logo" className="h-[100px] w-auto" />
+        {loadingTexts[loadingTextIndex]}
+      </div>
+    );
+  }
+
   return (
     <>
       <NavigationBar />
@@ -32,7 +75,10 @@ function Home() {
             biomedical engineers.
           </div>
           <div className="px-6">
-            <button className="bg-[#c50102] text-white text-lg px-6 py-2 border-2 border-transparent hover:bg-red-50 hover:text-[#c50102] hover:border-[#c50102] transition">
+            <button
+              onClick={() => navigate("/about-us")}
+              className="bg-[#c50102] text-white text-lg px-6 py-2 border-2 border-transparent hover:bg-red-50 hover:text-[#c50102] hover:border-[#c50102] transition"
+            >
               See More
             </button>
           </div>
