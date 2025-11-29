@@ -5,7 +5,6 @@ import NavigationBar from "../../components/navigation";
 import Footer from "../../components/footer";
 import Event from "../../assets/images/events three.jpg";
 import HeartHackathon2024 from "../../assets/images/heart hackathon.jpg";
-import EducationFestival2023 from "../../assets/images/edufest two.png";
 import Logo from "../../assets/logo name.png";
 
 const achievements = [{ img: HeartHackathon2024, year: "2024", place: "3rd Place" }];
