@@ -22,6 +22,32 @@ const members = [];
 
 function OurTeam() {
   React.useEffect(() => window.scrollTo(0, 0), []);
+
+  // wait for images to load
+  const [loading, setLoading] = React.useState(true);
+  const images = [Team];
+  React.useEffect(() => {
+    let loadedCount = 0;
+    const imageObjects = [];
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        loadedCount += 1;
+        if (loadedCount === images.length) {
+          setTimeout(() => setLoading(false), 1000);
+        }
+      };
+      imageObjects.push(img);
+    });
+    return () => {
+      imageObjects.forEach((img) => (img.onload = null));
+    };
+  }, []);
+  if (loading) {
+    return <div className="w-full h-screen flex justify-center items-center text-2xl">Loading...</div>;
+  }
+
   return (
     <>
       <NavigationBar />
