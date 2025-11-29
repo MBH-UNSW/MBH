@@ -2,12 +2,16 @@ import { useNavigate, useLocation } from "react-router-dom";
 import React from "react";
 import NavigationBar from "../components/navigation";
 import Footer from "../components/footer";
-import Sponsor from "../assets/images/sponsor.png";
+import Sponsor from "../assets/images/sponsors/sponsor.png";
+import Logo from "../assets/logo name.png";
+import OSCE from "../assets/images/sponsors/osce.png";
+import UNSW from "../assets/images/sponsors/unsw.png";
+import Abbott from "../assets/images/sponsors/abbott.png";
 
 const sponsors = [
-  { name: "Abbott", img: "" },
-  { name: "UNSW Sydney", img: "" },
-  { name: "Office of the Chief Scientist and Engineer", img: "" },
+  { name: "Abbott", img: Abbott },
+  { name: "UNSW Sydney", img: UNSW },
+  { name: "Office of the Chief Scientist and Engineer", img: OSCE },
 ];
 
 const collaborators = [
@@ -18,13 +22,57 @@ const collaborators = [
 
 function Sponsorship() {
   React.useEffect(() => window.scrollTo(0, 0), []);
+
+  // wait for images to load
+  const [loading, setLoading] = React.useState(true);
+  const [loadingTextIndex, setLoadingTextIndex] = React.useState(0);
+  const images = [Sponsor];
+  const loadingTexts = ["Total artificial heart… initializing…", "Beating expectations…"];
+
+  React.useEffect(() => {
+    let countLoadedImg = 0;
+    const imageObjects = [];
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        countLoadedImg += 1;
+        if (countLoadedImg === images.length) {
+          const totalDuration = loadingTexts.length * 1000; // 1s per phrase
+          setTimeout(() => setLoading(false), totalDuration);
+        }
+      };
+      imageObjects.push(img);
+    });
+    return () => imageObjects.forEach((img) => (img.onload = null));
+  }, []);
+
+  React.useEffect(() => {
+    if (!loading) return;
+    const interval = setInterval(() => {
+      setLoadingTextIndex((prev) =>
+        prev + 1 === loadingTexts.length ? loadingTexts.length : (prev + 1) % loadingTexts.length
+      );
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [loading]);
+
+  if (loading) {
+    return (
+      <div className="w-full h-screen flex flex-col gap-16 justify-center items-center text-xl text-[#c50102] font-bold px-4 text-center">
+        <img src={Logo} alt="Logo" className="h-[100px] w-auto" />
+        {loadingTexts[loadingTextIndex]}
+      </div>
+    );
+  }
+
   return (
     <>
       <NavigationBar />
       <div className="w-full flex flex-col pt-20">
         <div
           className="relative w-full h-[50vh] bg-cover bg-no-repeat text-white flex flex-col justify-center items-center text-center text-2xl px-10 gap-6"
-          style={{ backgroundImage: `url(${Sponsor})`, backgroundPositionY: "35%" }}
+          style={{ backgroundImage: `url(${Sponsor})`, backgroundPositionX: "50%", backgroundPositionY: "35%" }}
         >
           <div className="absolute inset-0 bg-black/30"></div>
           <b className="relative z-10 text-4xl">Sponsors</b>
@@ -38,10 +86,10 @@ function Sponsorship() {
             {sponsors.map((s) => (
               <div
                 key={s.name}
-                className="flex flex-col items-center bg-[#f5f5f5] p-6 text-center text-[#c50102] w-60 aspect-square gap-6 rounded shadow-lg"
+                className="flex flex-col items-center bg-[#f5f5f5] p-6 text-center text-[#c50102] w-60 gap-6 rounded shadow-lg"
               >
                 <div className="py-10">
-                  <i className="fa fa-user text-4xl" aria-hidden="true"></i>
+                  <img src={s.img} alt="company logo" className="h-[60px] w-auto" />
                 </div>
                 <div className="mb-4">
                   <b>{s.name}</b>
@@ -77,12 +125,12 @@ function Sponsorship() {
             </div>
             <div className="text-white text-lg px-6">We are passionate about making a difference</div>
           </div>
-          <div className="flex px-6 gap-6">
+          <div className="flex flex-col md:flex-row px-6 gap-6">
             <button className="bg-white text-[#c50102] text-lg px-6 py-2 rounded-lg border-2 border-transparent hover:bg-red-50 hover:border-[#c50102] transition">
               View our Prospectus
             </button>
             <button className="bg-white text-[#c50102] text-lg px-6 py-2 rounded-lg border-2 border-transparent hover:bg-red-50 hover:border-[#c50102] transition">
-              Want to sponsor us? Contact Us
+              Contact Us
             </button>
           </div>
         </div>

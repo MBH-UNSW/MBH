@@ -5,6 +5,8 @@ import AboutUs from "./pages/about-us";
 import OurTeam from "./pages/our-team";
 import Events from "./pages/events";
 import Sponsorship from "./pages/sponsorship";
+import EduFest from "./pages/sub-pages/edu-fest";
+import HeartHack from "./pages/sub-pages/heart-hack";
 
 function App() {
   return (
@@ -18,6 +20,9 @@ function App() {
         <Route path="/our-team" element={<OurTeam />} />
         {/* Events Page */}
         <Route path="/events" element={<Events />} />
+        <Route path="/events/education-festival" element={<EduFest />} />
+        <Route path="/events/heart-hackathon" element={<HeartHack />} />
+
         {/* Sponsors & Partners Page */}
         <Route path="/sponsorship" element={<Sponsorship />} />
       </Routes>
