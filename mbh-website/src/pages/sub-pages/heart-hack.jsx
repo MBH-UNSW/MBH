@@ -42,7 +42,7 @@ function HeartHack() {
       setLoadingTextIndex((prev) =>
         prev + 1 === loadingTexts.length ? loadingTexts.length : (prev + 1) % loadingTexts.length
       );
-    }, 1000);
+    }, 1500);
     return () => clearInterval(interval);
   }, [loading]);
 
