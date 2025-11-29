@@ -4,8 +4,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 import NavigationBar from "../../components/navigation";
 import Footer from "../../components/footer";
 import Event from "../../assets/images/events three.jpg";
-import EducationFestival2024 from "../../assets/images/edufest one.jpg";
-import EducationFestival2023 from "../../assets/images/edufest two.png";
+import EducationFestival2023 from "../../assets/images/edufest one.jpg";
+import EducationFestival2024 from "../../assets/images/edufest two.png";
 import Logo from "../../assets/logo name.png";
 
 const achievements = [
@@ -46,7 +46,7 @@ function EduFest() {
       setLoadingTextIndex((prev) =>
         prev + 1 === loadingTexts.length ? loadingTexts.length : (prev + 1) % loadingTexts.length
       );
-    }, 1000);
+    }, 1500);
     return () => clearInterval(interval);
   }, [loading]);
 

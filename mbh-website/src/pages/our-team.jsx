@@ -54,7 +54,7 @@ function OurTeam() {
       setLoadingTextIndex((prev) =>
         prev + 1 === loadingTexts.length ? loadingTexts.length : (prev + 1) % loadingTexts.length
       );
-    }, 1500);
+    }, 2500);
     return () => clearInterval(interval);
   }, [loading]);
 
