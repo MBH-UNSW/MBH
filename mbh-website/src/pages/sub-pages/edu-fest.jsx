@@ -21,7 +21,7 @@ function EduFest() {
   const [loading, setLoading] = React.useState(true);
   const [loadingTextIndex, setLoadingTextIndex] = React.useState(0);
   const images = [EducationFestival2024, EducationFestival2023];
-  const loadingTexts = ["Total artificial heart… initializing…", "Pumping excitement…"];
+  const loadingTexts = ["Pumping excitement…"];
   React.useEffect(() => {
     let loadedCount = 0;
     const imageObjects = [];

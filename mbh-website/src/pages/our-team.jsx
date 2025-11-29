@@ -28,7 +28,7 @@ function OurTeam() {
   const [loading, setLoading] = React.useState(true);
   const [loadingTextIndex, setLoadingTextIndex] = React.useState(0);
   const images = [Team];
-  const loadingTexts = ["Total artificial heart… initializing…", "Flow rate optimal…", "Almost ready…"];
+  const loadingTexts = ["Pumping heart..."];
 
   React.useEffect(() => {
     let countLoadedImg = 0;

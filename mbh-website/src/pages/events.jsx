@@ -17,7 +17,7 @@ function Events() {
   const [loading, setLoading] = React.useState(true);
   const [loadingTextIndex, setLoadingTextIndex] = React.useState(0);
   const images = [Event, VIP, EduFest, HeartHack];
-  const loadingTexts = ["Total artificial heart… initializing…", "Pumping excitement…"];
+  const loadingTexts = ["Pumping excitement…"];
 
   React.useEffect(() => {
     let countLoadedImg = 0;

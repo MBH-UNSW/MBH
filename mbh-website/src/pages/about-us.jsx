@@ -12,7 +12,7 @@ function AboutUs() {
   const [loading, setLoading] = React.useState(true);
   const [loadingTextIndex, setLoadingTextIndex] = React.useState(0);
   const images = [Us];
-  const loadingTexts = ["Total artificial heart… initializing…", "Nearly there…", "Heartbeat in 3… 2… 1…"];
+  const loadingTexts = ["Heartbeat in 3… 2… 1…"];
 
   React.useEffect(() => {
     let countLoadedImg = 0;

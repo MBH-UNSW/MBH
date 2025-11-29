@@ -7,6 +7,9 @@ import Logo from "../assets/logo name.png";
 import OSCE from "../assets/images/sponsors/osce.png";
 import UNSW from "../assets/images/sponsors/unsw.png";
 import Abbott from "../assets/images/sponsors/abbott.png";
+import Ansys from "../assets/images/sponsors/ansys.png";
+import IHealthE from "../assets/images/sponsors/tyree-ihealthe.png";
+import StVincents from "../assets/images/sponsors/st-vincents.png";
 
 const sponsors = [
   { name: "Abbott", img: Abbott },
@@ -15,9 +18,9 @@ const sponsors = [
 ];
 
 const collaborators = [
-  { name: "Ansys", img: "" },
-  { name: "UNSW Tyree IHealthE", img: "" },
-  { name: "St Vincent's Hospital", img: "" },
+  { name: "Ansys", img: Ansys },
+  { name: "UNSW Tyree IHealthE", img: IHealthE },
+  { name: "St Vincent's Hospital", img: StVincents },
 ];
 
 function Sponsorship() {
@@ -27,7 +30,7 @@ function Sponsorship() {
   const [loading, setLoading] = React.useState(true);
   const [loadingTextIndex, setLoadingTextIndex] = React.useState(0);
   const images = [Sponsor];
-  const loadingTexts = ["Total artificial heart… initializing…", "Beating expectations…"];
+  const loadingTexts = ["Beating expectations…"];
 
   React.useEffect(() => {
     let countLoadedImg = 0;
@@ -86,7 +89,7 @@ function Sponsorship() {
             {sponsors.map((s) => (
               <div
                 key={s.name}
-                className="flex flex-col items-center bg-[#f5f5f5] p-6 text-center text-[#c50102] w-60 gap-6 rounded shadow-lg"
+                className="flex flex-col items-center bg-[#f5f5f5] p-6 text-center text-[#c50102] w-70 gap-6 rounded shadow-lg"
               >
                 <div className="py-10">
                   <img src={s.img} alt="company logo" className="h-[60px] w-auto" />
@@ -106,10 +109,10 @@ function Sponsorship() {
             {collaborators.map((c) => (
               <div
                 key={c.name}
-                className="flex flex-col items-center bg-[#f5f5f5] p-6 text-center text-[#c50102] w-60 aspect-square gap-6 rounded shadow-lg"
+                className="flex flex-col items-center bg-[#f5f5f5] p-6 text-center text-[#c50102] w-70 gap-6 rounded shadow-lg"
               >
                 <div className="py-10">
-                  <i className="fa fa-user text-4xl" aria-hidden="true"></i>
+                  <img src={c.img} alt="company logo" className="h-[60px] w-auto" />
                 </div>
                 <div className="mb-4">
                   <b>{c.name}</b>

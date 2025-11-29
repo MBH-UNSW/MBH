@@ -17,12 +17,7 @@ function Home() {
   const [loading, setLoading] = React.useState(true);
   const [loadingTextIndex, setLoadingTextIndex] = React.useState(0);
   const images = [MBHOfficial, AboutUs, Events];
-  const loadingTexts = [
-    "Total artificial heart… initializing…",
-    "Synchronizing flow...",
-    "Loading pulse patterns…",
-    "Almost ready…",
-  ];
+  const loadingTexts = ["Total artificial heart… initializing…", "Synchronizing flow...", "Almost ready…"];
   React.useEffect(() => {
     let countLoadedImg = 0;
     const imageObjects = [];
