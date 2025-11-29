@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "font-awesome/css/font-awesome.min.css";
 import React from "react";
-import Logo from "../assets/logo.png";
+import Logo from "../assets/logo name.png";
 
 function NavigationBar() {
   const [openMenu, setOpenMenu] = React.useState(false);
