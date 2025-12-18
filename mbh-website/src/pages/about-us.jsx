@@ -59,9 +59,22 @@ function AboutUs() {
           className="relative w-full h-[50vh] bg-cover bg-no-repeat text-white flex flex-col justify-center items-center text-center text-2xl px-10 gap-6"
           style={{ backgroundImage: `url(${Us})`, backgroundPositionX: "50%", backgroundPositionY: "35%" }}
         >
-          <div className="absolute inset-0 bg-black/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
+          <div className="relative z-10 flex h-full items-center">
+            <div className="w-full px-6 md:px-16 pb-10 md:pb-0 justify-center items-center">
+              <div className="inline-flex gap-2 rounded-full bg-white/10 px-4 py-1 text-[11px] font-medium uppercase tracking-[0.25em]">
+                UNSW Mending Broken Hearts
+              </div>
+              <h1 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">About Us</h1>
+              <p className="mt-3 max-w-xl text-base md:text-lg lg:text-xl text-rose-50/90">
+                Find out our goals and the impact we aim to have.
+              </p>
+              <div className="mt-5 h-[2px] w-[50%] mx-auto rounded-full bg-gradient-to-r from-rose-300 via-pink-300 to-red-400" />
+            </div>
+          </div>
+          {/* <div className="absolute inset-0 bg-black/30"></div>
           <b className="relative z-10 text-4xl">About Us</b>
-          <div className="relative z-10 text-white text-2xl">Find out our goals and the impact we aim to have</div>
+          <div className="relative z-10 text-white text-2xl">Find out our goals and the impact we aim to have</div> */}
         </div>
         <div className="w-full h-[auto] bg-[#f5f5f5] flex flex-col px-10 py-15 gap-6">
           <div className="text-2xl px-6">
